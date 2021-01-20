@@ -1,13 +1,11 @@
 {
   "pages": [
-   
     "pages/index/index",
     "pages/logs/logs",
     "pages/search/search",
     "pages/lddetail/lddetail",
-    "pages/lpdetail/lpdetail"
-   
-   
+    "pages/lpdetail/lpdetail",
+    "pages/secondIndex/secondIndex"
   ],
   "window": {
     "backgroundTextStyle": "light",
