@@ -1,0 +1,34 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+ <view class="name-select-ct" bindtap="goToSearchPage">
+      <image class="search-icon" src="/image/search_icon.png"></image>
+      <input class="search-text" placeholder="搜索小区宣传名、备案名" placeholder-class="search-text-pl" focus ="true" bindinput="bindinput"></input>
+  </view>
+  <view class="lpitem-divide"></view>
+  <block wx:for="{{lpanlist}}"  wx:for-item="lpan" wx:for-index="lpanIndex">
+     <block wx:for="{{lpan}}" wx:key="id">
+         <lpItem  lpitem = "{{item}}" ></lpItem>
+     </block>
+  </block>
+
+
+  <view class="lpitem-divide-blank"></view>
+  <!--加载框-->
+  <view class="weui-loading__wrp" wx:if="{{is_loading}}">
+      <view class="weui-loading" style="width:60rpx;height:60rpx"></view>
+  </view>
+
+   <view class="weui-load-more" wx:if="{{is_loadingMore}}">
+      <view class="weui-loading" style="width:40rpx;height:40rpx"></view>
+      <view class="lpitem-divide-loading"></view>
+  </view>
+
+  <!--已经到底-->
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{is_over}}">
+			<text class="weui-loadmore__tips">已经到底了</text>
+  </view>
+  <!--暂无数据-->
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{is_zero}}">
+			<text class="weui-loadmore__tips">暂无数据</text>
+  </view>
+</view>

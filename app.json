@@ -1,0 +1,22 @@
+{
+  "pages": [
+   
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/search/search",
+    "pages/lddetail/lddetail",
+    "pages/lpdetail/lpdetail"
+   
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "庐州居不易",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 200
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

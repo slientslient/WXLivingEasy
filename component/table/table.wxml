@@ -1,0 +1,100 @@
+<!--components/table.wxml-->
+<view class="table-fixed">
+  <!-- S 固定列 -->
+  <view class="table__fixed-columns">
+    <!-- S 横竖方向都要固定的左上角单元格 -->
+    <view class="tr" >
+        <view class="fixed-th" 
+        wx:for="{{fixedCols[0]}}"
+        wx:key="{{index}}">
+          <view  style="width: 54rpx;">
+             {{item}}
+          </view>
+        </view>
+    </view>
+    <!-- E 横竖方向都要固定的左上角单元格 -->
+    <view class="iblank">
+    </view>
+    <!-- S 固定列（除表头） -->
+    <scroll-view class="table__fixed-others"
+      scroll-y="true"
+      scroll-top="{{scrollTop}}"
+      style="height: {{tbodyHeight}}rpx;">
+      <view wx:for="{{firstColsOther}}"
+        wx:for-item="row"
+        wx:for-index="rowIndex"
+        wx:key="{{rowIndex}}"
+        class="tr">
+        <view class="fixed-td"
+          wx:for="{{row}}"
+          wx:for-item="col"
+          wx:for-index="colIndex"
+          wx:key="{{colIndex}}">
+          <view style="width:54rpx" class="table-first-col">
+                    <view >
+                      {{col}}
+                    </view>
+                    <view>
+                      F
+                    </view>
+                </view>
+        </view>
+      </view>
+    </scroll-view>
+    <!-- E 固定列（除表头） -->
+  </view>
+  <!-- E 固定列 -->
+    <!-- S 完整的表格 -->
+  <scroll-view class="table" scroll-x>
+    <!-- S 固定表头（完整） -->
+    <view class="thead"  id="thead">
+      <view class="tr">
+        <view  class="th" 
+          wx:for="{{thead}}"
+          wx:key="{{index}}"
+         >
+          <view class="{{index==0?'width-54':'width-286'}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- E 固定表头（完整） -->
+    <view class="blank" style="width:{{theadWidth}}">
+    </view>
+   <!-- S tbody（完整） -->
+   <scroll-view class="tbody" 
+      scroll-y
+      throttle="{{false}}"
+      bindscroll="scrollVertical"
+      style="height: {{tbodyHeight}}rpx;width:{{theadWidth}}">
+        <view   class="tr"
+          wx:for="{{tbody}}"
+          wx:for-item="tr"
+          wx:for-index="trIndex"
+          wx:key="{{trIndex}}">
+          <view class="td"
+            wx:for="{{tr}}"
+            wx:for-item="td"
+            wx:for-index="tdIndex"
+            wx:key="{{tdIndex}}">
+           
+                <view wx:if="{{tdIndex==0}}" style="width:54rpx" class="table-first-col">
+                    <view >
+                      {{td}}
+                    </view>
+                    <view>
+                      F
+                    </view>
+                </view>
+                <view  bindtap="cilckEvent" data-item="{{td}}" >
+                  <roomItem roomItem="{{td}}" wx:if="{{tdIndex > 0}}" style="width:286rpx"></roomItem>
+                </view>
+               
+          </view>
+        </view>
+    </scroll-view>
+    <!-- S tbody（完整） -->
+  </scroll-view>
+  <!-- E 完整的表格 -->
+</view>

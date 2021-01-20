@@ -1,0 +1,123 @@
+/* components/table.wxss */
+.table-fixed {
+  position: relative;
+  overflow: hidden;
+}
+.table__fixed-columns {
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  pointer-events: none; /*固定列不接受触摸，相当于滚动表格本身*/
+  z-index: 100;
+}
+.iblank{
+  margin-top: 1rpx;
+  background-color:white;
+  height:10rpx;
+}
+.blank{
+  background-color:white;
+  height:10rpx;
+}
+.table {
+  width: 100%;
+}
+.table__fixed-common{
+ 
+}
+
+
+.fix-col{
+  background-color: #1989FA;
+}
+.tr {
+  white-space: nowrap;
+  font-size: 0;
+}
+/* .tr:nth-child(even) {
+  background-color: #FAFAFA;
+} */
+.td{
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  color: #666;
+  margin:8rpx 5rpx;
+  /* border-right: 1rpx solid #E6E6E6;
+  border-bottom: 1rpx solid #E6E6E6; */
+  font-size: 28rpx;
+  line-height: 38rpx;
+  height:116rpx;
+}
+.fixed-td{
+  box-sizing: border-box;
+  display: inline-flex;
+  text-align: center;
+  border-right: 1rpx solid #E6E6E6;
+  /* border-bottom: 10rpx solid #ffffff; */
+  font-size: 28rpx;
+  line-height: 38rpx;
+  margin: 8rpx 5rpx;
+  background-color: #1989FA;
+  color:#fff;
+  height:116rpx;
+}
+.th {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  font-weight: 700;
+  color: #333333;
+  border-right: 1rpx solid #333333;
+  border-bottom: 1rpx solid #333333;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  padding: 8rpx 0;
+  margin:0 5rpx;
+  border-top: 1rpx solid #333333;
+  border-left: 1rpx solid #333333;
+}
+.fixed-th{
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  font-weight: 700;
+  color: #333333;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  padding: 8rpx 0;
+  margin:0 5rpx;
+  border: 1rpx solid #333333;
+  visibility:hidden
+}
+/* .td:first-child,
+.th:first-child {
+  border-left: 1rpx solid #E6E6E6;
+} */
+.th:first-child {
+  margin-right:0rpx;
+} 
+
+.thead{
+  
+}
+.width-54{
+  width:54rpx;
+  
+  
+}
+.width-286{
+  width:294rpx;
+}
+.table-first-col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+::-webkit-scrollbar
+{
+  width: 0;
+  height: 0;
+  color: transparent;
+}

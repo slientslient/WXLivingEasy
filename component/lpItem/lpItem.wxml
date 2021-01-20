@@ -1,0 +1,60 @@
+<!--component/lpItem/lpItem.wxml-->
+<navigator url="/pages/lpdetail/lpdetail?id={{lpitem.id}}" hover-class="none" >
+<view class="lpitem-container">
+     <view class="lpitem-name-container">
+          <view class="lpitem-name-ct">
+            <span class="lpitem-reg-name">{{lpitem.ad_name}}</span>
+            <span class="lpitem-ad-name">{{lpitem.register_name}}</span>
+          </view>
+          <view class="lpanitem-area-ct">
+            <span class="lpitem-area">{{lpitem.area}}</span>
+          </view>
+     </view>
+     <view class="lpitem-divide-line"></view>
+
+     <view class="lpitem-price-container">
+        <view class="lpitem-price-title-ct">
+          <text class="lpitem-price-title">单价中位数：</text>
+          <view>
+            <text class="lpitem-price-num">{{lpitem.med_single_price}}</text>
+            <text class="lpitem-price-text">元/平米</text>
+         </view>
+        </view>
+        <view class="lpitem-price-num-ct">
+          <text class="lpitem-price-title">总价中位数：</text>
+          <view>
+            <text class="lpitem-price-num">{{lpitem.med_total_price}}</text>
+            <text class="lpitem-price-text">万/套</text>
+          </view>
+        </view>
+     </view>
+     <view class="lpitem-divide-line"></view>
+
+     <view class="lpitem-dev-container">
+        <text class="lpitem-dev-title">开发商：</text>
+        <view wx:for="{{lpitem.dev_name}}" wx:key="*this">
+          <text class="lpitem-dev-names">{{item}}</text>
+          <text class="lpitem-dev-names" wx:if="{{index<(lpitem.dev_name.length-1) ? true:false}}">、</text>
+        </view>
+        <text class="lpitem-devc-name">（{{lpitem.devc_name}}）</text>
+     </view>
+     <view class="lpitem-divide-line"></view>
+     
+
+     <view class="lpitem-pro-ct">
+       <text class="lpitem-pro-title">物业：</text>
+       <text class="lpitem-pro-short">{{lpitem.pro_short}}</text>
+       <text class="lpitem-pro-name">（{{lpitem.proc_name}}）</text>
+     </view>
+     <view class="lpitem-divide-line"></view>
+
+     <view class="lpitem-pos-ct">
+      <image src="/image/address.png" class="lpitem-image"></image> 
+      <text class="lpitem-pos-name">{{lpitem.position}}</text>
+     </view>
+
+     <view class="{{lpitem.isNewReg?'lpitem-show':'lpitem-hide'}}">
+       <image src="/image/new_register.png" class="lpitem-new-reg"></image>
+     </view>
+</view>
+</navigator>

@@ -1,0 +1,140 @@
+<!--pages/lpdetail/lpdetail.wxml-->
+<view class="container" style="align-items:start;">
+    
+	<!--加载框-->
+    <view class="weui-loading__wrp" wx:if="{{is_loading}}">
+        <view class="weui-loading" style="width:60rpx;height:60rpx"></view>
+    </view>
+   <view class="lpitem-name-container">
+          <view class="lpitem-name-ct">
+            <span class="lpitem-ad-name">{{lpitem.ad_name}}</span>
+          </view>
+          <view class="lpanitem-area-ct">
+            <span class="lpitem-area">{{lpitem.area}}</span>
+          </view>
+  </view>
+
+  <view class="lpitem-pos-ct">
+      <image src="/image/address.png" class="lpitem-image"></image> 
+      <text class="lpitem-pos-name">{{lpitem.position}}</text>
+  </view>
+
+  <view class="med-price-ct">
+     <view class="med-price-wrap">
+            <text class="lpitem-price-num">{{lpitem.med_total_price}}</text>
+            <text class="price-unit">万</text>
+            <text class="lpitem-price-text">/套(中位数)</text>
+     </view>
+     <view class="med-area-wrap">
+            <text class="lpitem-price-num">{{lpitem.med_single_price}}</text>
+            <text class="price-unit">元</text>
+            <text class="lpitem-price-text">/m²(中位数)</text>
+         </view>
+  </view>
+  <!-- echart -->
+
+  <view class="{{is_echart_show?'ec-container':'ec-container-hide'}}" >
+    <ec-canvas id="mychart-first" canvas-id="mychart-bar-one" ec="{{ ec }}" class="ec-first"></ec-canvas>
+    <!-- <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" class="ec-second"></ec-canvas> -->
+  </view>
+<view class="lpitem-divide"></view>
+  <view  class="{{is_echart_show?'ec-container':'ec-container-hide'}}">
+    <ec-canvas id="mychart-second" canvas-id="mychart-bar-two" ec="{{ ec2 }}" class="ec-first"></ec-canvas>
+    <!-- <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}" class="ec-second"></ec-canvas> -->
+  </view>
+<view class="lpitem-divide"></view>
+	<view class="reg-info-ct" bindtap="regInfoUpDown">
+    <text class="reg-name-text">备案信息</text>
+    <image class="arrow-up-down" src="{{isRegUp?'/image/reg_arrow_up.png':'/image/reg_arrow_down.png'}}"></image>
+  </view>
+  <!-- <view class="lpitem-divide"></view>
+  <view class="lpitem-divide-line"></view> -->
+   <view class="up-down-wrap" wx:if="{{isRegUp}}">
+     <view class="reg-name-wrap">
+        <text class="reg-tite-text-1">备案名：</text>
+        <!-- <text class="reg-tite-text">：</text> -->
+        <text class="reg-tite-text">{{lpitem.register_name}}</text>
+     </view>
+     <view class="reg-name-wrap">
+        <text class="reg-tite-text-1">开发商：</text>
+        <!-- <text class="reg-tite-text">：</text> -->
+        <view class="reg-tite-text">
+          <block wx:for="{{lpitem.dev_name}}" wx:key="*this" >
+            <text>{{item}}</text>
+            <text wx:if="{{index<(lpitem.dev_name.length-1) ? true:false}}">、</text>
+          </block>  
+        </view>
+     </view>
+     <view class="reg-name-wrap">
+        <text class="reg-tite-text-1">物 业：</text>
+        <!-- <text class="reg-tite-text">：</text> -->
+        <text class="reg-tite-text">{{lpitem.pro_short}}</text>
+    </view>
+     <view class="reg-name-wrap">
+        <text class="reg-tite-text-1">开发公司：</text>
+        <!-- <text class="reg-tite-text">：</text> -->
+        <text class="reg-tite-text">{{lpitem.devc_name}}</text>
+     </view>
+     <view class="reg-name-wrap">
+        <text class="reg-tite-text-1">物业单位：</text>
+        <!-- <text class="reg-tite-text">：</text> -->
+        <text class="reg-tite-text">{{lpitem.proc_name}}</text>
+     </view>
+  </view>
+  <!-- 规划指标 -->
+  <view class="lpitem-divide"></view>
+  <view class="reg-info-ct" bindtap="planInfoUpDown">
+    <text class="reg-name-text">规划指标</text>
+    <image class="arrow-up-down" src="{{isPlanUp?'/image/reg_arrow_up.png':'/image/reg_arrow_down.png'}}"></image>
+  </view>
+   <!-- <view class="lpitem-divide"></view>
+    <view class="lpitem-divide-line"></view> -->
+<view class="plan-container" wx:if="{{isPlanUp}}">
+    
+    <view class="capility-ct">
+          <text class="cap-tite-text">容积率：{{lpitem.capacity_rate}}</text>
+          <text class="cap-tite-text">建筑面积：{{lpitem.land_area}}万m²</text>
+    </view>
+
+    <view class="capility-ct">
+          <text class="cap-tite-text">绿化率：{{lpitem.greening_rate}}%</text>
+          <text class="cap-tite-text">车位配比：{{lpitem.parking_rate}}%</text>
+    </view>
+
+  </view>
+  <view class="lpitem-divide"></view>
+  <view class="ld-info-ct">
+      <text class="reg-name-text">已备案楼栋</text>
+      <view class="ld-choose-ct" bindtap="showRadio">
+        <text class="cap-tite-text">{{choose_name}}</text>
+        <image class="arrow-down" src="/image/arrow_down.png"></image>
+      </view>
+   </view>
+   
+   <!-- 选择框 -->
+        <view class="radio-select-container"  wx:if="{{is_radio_show}}" catchtouchmove="catchtouchmove" bindtap="bindRadioSelect">
+          <view class="radio-group-ct" >
+            <radio-group bindchange="radioChange">
+                <label class="radio-row-total" wx:for="{{choose_items}}" wx:key="{{item.value}}">
+                  <view class="radio-wrapper">
+                    <radio value="{{item.value}}" checked="{{item.checked}}" color="#1989FA"/>
+                  </view>
+                  <view class="item-name-text">{{item.name}}</view>
+                </label>
+              </radio-group>
+          </view>
+        </view>
+        <!-- 选择框 -->
+
+    <!--楼栋列表-->
+    <view class="ldong-list-container">
+      <block wx:for="{{ldlist}}" >
+         <view class="lditem-wrapper" bindtap="goToLdDetail">
+           <ldItem lditem = "{{item}}" lpName = "{{lpitem.ad_name}}"></ldItem>
+         </view>
+      </block>
+    </view>
+      
+
+ 
+</view>

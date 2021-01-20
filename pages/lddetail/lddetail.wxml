@@ -1,0 +1,215 @@
+<!--pages/lddetail/lddetail.wxml-->
+<view class="container">
+   <view class="ld-first-row">
+     <text class="lp-name">{{lpName}}</text>
+     <text class="ld-name">{{lditem.ld_name}}</text>
+   </view>
+   <view class="lpitem-divide-line"></view>
+
+   <view class="ld-first-row">
+      <view>
+        <text class="ld-total-price">{{lditem.med_total_price}}万</text>
+        <text class="ld-normal-text">/套</text>
+      </view>
+      <view>
+         <text class="ld-normal-text">{{lditem.floor_num}}层{{lditem.family_num}}户</text>
+      </view> 
+   </view>
+
+   <view class="ld-first-row">
+      <text class="ld-normal-text">单价：{{lditem.med_single_price}}元/m²</text>
+      <text class="ld-normal-text">面积：{{lditem.med_area}}m²</text>
+   </view>
+
+   <view class="table">
+     <!--表头-->
+      <view class="tr bg-blue">
+         <view class="th"></view>
+         <view class="inner-border"></view>
+         <view class="th">
+            <text class="td-text">均价</text>
+            <text class="td-text">(元/m²)</text>  
+         </view>
+         <view class="inner-border"></view>
+          <view class="th">
+            <text class="td-text">单价中位数</text>
+            <text class="td-text">(元/m²)</text>  
+          </view>
+          <view class="inner-border"></view>
+         <view class="th">
+            <text class="td-text">总价中位数</text>
+         </view>
+         <view class="inner-border"></view>
+         <view class="th">
+           <text class="td-text">面积中位数</text>
+         </view>
+      </view>
+      <!--表中-->
+       <block wx:for="{{lditem.type_list}}" wx:key="{{id}}">
+        <view class="tr-s " wx:if="{{index % 2 ==0}}">
+            <view class="td" wx:if="{{index < lditem.type_list.length-1}}">{{item.room_num}}户</view>
+            <view class="td" wx:if="{{index == lditem.type_list.length-1}}">{{item.room_num}}</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.avg_single_price}}</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.med_single_price}}</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.med_total_price}}万</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.med_area}}m²</view>
+        </view>
+        <view class="tr-s bg-bl" wx:else>
+            <view class="td" wx:if="{{index < lditem.type_list.length-1}}">{{item.room_num}}户</view>
+            <view class="td" wx:if="{{index == lditem.type_list.length-1}}">{{item.room_num}}</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.avg_single_price}}</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.med_single_price}}</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.med_total_price}}万</view>
+            <view class="inner-border-s"></view>
+            <view class="td">{{item.med_area}}m²</view>
+        </view>
+    </block>
+   </view>
+
+   <view class="reg-detail-ct">
+      <text class="reg-detail-text">备案详情({{lditem.reg_name}})</text>
+   </view>
+
+    <!-- 加载框 -->
+  <view class="weui-loading__wrp"  wx:if="{{is_loading}}">
+        <view class="weui-loading" style="width:60rpx;height:60rpx"></view>
+    </view>
+</view>
+
+<view class="fixed-container">
+<!--冻结行列-->
+<table table="{{tableData}}" fixedColsNum="{{fixedColsNum}}" tbodyHeight="{{tbodyHeight}}" bind:myEvent="onMyEvent"></table>
+</view>
+
+<!--点击冻结行列的单元格-->
+<view class="pop-windows">
+<view class="room-detail-container" catchtouchmove="catchtouchmove" wx:if="{{isRoomShow}}" >
+   <view class="room-detail-wrapper">
+      <view class="room-detail-first-row">
+            <text class="room-detail-lp-name">{{lpName}}</text>
+         <view>
+            <text class="room-detail-room-name">{{roomDetail.room_name}}</text>
+            <text class="room-detail-ld-name">({{lditem.ld_name}})</text>
+         </view>
+      </view>
+      <view class="room-detail-second-row">
+         <view class="second-left-wrapper">
+              <view class="flex-row">
+                   <text class="room-detail-text">备案总价：</text>
+                   <text class="room-detail-content">{{roomDetail.total_price}}万</text>
+              </view>
+              <view class="flex-row">
+                   <text class="room-detail-text">备案单价：</text>
+                   <text class="room-detail-content">{{roomDetail.single_price}}元/m²</text>
+              </view>
+              <view class="flex-row">
+                   <text class="room-detail-text">建筑面积：</text>
+                   <text class="room-detail-content">{{roomDetail.building_area}}m²</text>
+              </view>
+
+              <view class="flex-row">
+                 <view class="flex-column-1" >
+                     <text class="room-detail-area">套内面积</text>
+                     <text class="room-detail-area">{{roomDetail.inside_area}}m²</text>
+                     <text class="room-detail-area">({{roomDetail.innerPercent}}%)</text>
+                 </view>
+                 <view class="flex-column-2" >
+                     <text class="room-detail-area">公摊面积</text>
+                     <text class="room-detail-area">{{roomDetail.pub_area}}m²</text>
+                     <text class="room-detail-area">({{roomDetail.pubPercent}}%)</text>
+                 </view>
+              </view>
+         </view>
+
+         <view class="second-right-wrapper">
+           <block wx:for="{{levelList}}">
+               <view class="flex-row-level" style="height:{{roomDetail.levelHeight}}rpx">
+                  <view class="first-border {{item==roomDetail.floor_level?'bule-color':'white-color'}}" ></view>
+                  <view class="{{item==roomDetail.floor_level?'show-level':'hide-level'}}">
+                     <image src="/image/left-arrow.png" class="left-arrow-image"></image>
+                     <text class="room-detail-level">{{roomDetail.floor_level}}层</text>
+                  </view>
+               </view>
+           </block>
+         </view>
+      </view>
+      <!-- second-row -->
+      <view class="flex-row-remark" wx:if="{{roomDetail.remark.length}}">
+                 <text class="room-detail-remark">备注：</text>
+                 <text class="room-detail-remark">{{roomDetail.remark}}</text>
+      </view>
+
+      <!-- 分割线 -->
+      <view class="room-detail-devide"></view>
+      <!-- 确认按钮 -->
+      <view class="room-detail-sure" bindtap="cancelPopShow">
+            <text>确定</text>
+      </view>
+   </view>
+</view>
+</view>
+<!-- end pop -->
+<!-- 特殊楼层 -->
+<view class="room-detail-text" style="margin-top:20rpx;margin-left:24rpx;" wx:if="{{lditem.room_special.length}}">特殊楼层</view>
+<view class="room-detail-specail" wx:if="{{lditem.room_special.length}}">
+   <!-- 表头 -->
+   <view class="flex-column-s">
+     <view class="middle-wrapper height-80" >
+        <text>房号</text>
+        <text> </text>
+     </view>
+     <view class="middle-wrapper height-80">
+        <text >建筑面积</text>
+        <text>(m²)</text>
+     </view>
+     <view class="middle-wrapper height-80">
+        <text >套内面积</text>
+        <text>(m²)</text>
+     </view>
+     <view class="middle-wrapper height-80">
+        <text >公摊面积</text>
+        <text>(m²)</text>
+     </view>
+     <view class="middle-wrapper height-80">
+        <text >单价</text>
+        <text>(元/m²)</text>
+     </view>
+     <view class="middle-wrapper height-80">
+        <text >总价</text>
+        <text>(万)</text>
+     </view>
+
+   </view>
+   <!-- end表头 -->
+   <block wx:for="{{lditem.room_special}}" wx:if="{{lditem.room_special.length}}">
+      <view class="flex-column-tbody border-top">
+         <view class="middle-wrapper">
+            <text >{{item.room_name}}</text>
+         </view>
+         <view class="middle-wrapper">
+            <text >{{item.building_area}}</text>
+         </view>
+         <view class="middle-wrapper">
+            <text >{{item.inside_area}}</text>
+         </view>
+         <view class="middle-wrapper">
+            <text >{{item.pub_area}}</text>
+         </view>
+         <view class="middle-wrapper">
+            <text >{{item.single_price}}</text>
+         </view>
+         <view class="middle-wrapper">
+            <text >{{item.total_price}}</text>
+         </view>
+      </view>
+   </block>
+   <!-- end表中 -->
+</view>
+

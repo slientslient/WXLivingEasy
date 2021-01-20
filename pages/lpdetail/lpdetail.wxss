@@ -1,0 +1,246 @@
+/* pages/lpdetail/lpdetail.wxss */
+.weui-loading__wrp{
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-top:-30rpx;
+  margin-left:-30rpx;
+}
+.lpitem-name-container{
+  width:90%;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-between;
+  color:#333333;
+  margin: 12rpx 14rpx 0rpx 24rpx;
+  
+  /* padding:16rpx 14rpx 2rpx 18rpx; */
+}
+
+
+.lpitem-ad-name{
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #1989FA;
+
+}
+
+.lpitem-area{
+  font-size: 26rpx;
+  font-weight: 700;
+}
+.lpitem-pos-ct{
+  display:flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items:center;
+  margin: 12rpx 20rpx 0rpx 16rpx;
+
+}
+.lpitem-image{
+  width: 36rpx;
+  height: 36rpx;
+}
+.lpitem-pos-name{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+  margin-left: 4rpx;
+}
+.med-price-ct{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 2rpx 20rpx 10rpx 16rpx;
+}
+.med-price-wrap{
+  flex:1;
+}
+.med-area-wrap{
+  flex:1;
+}
+.lpitem-price-num{
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #FF0066;
+}
+.lpitem-price-text{
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #333333;
+ 
+}
+.price-unit{
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #FF0066;
+}
+.lpitem-divide-line{
+  background: #e1e1e1;
+  width:100%;
+  height: 1rpx;
+  margin-left:34rpx;
+
+}
+.reg-info-ct{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background:#f8f8f8;
+}
+.ld-info-ct{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.reg-name-text{
+font-size: 32rpx;
+font-weight: 700;
+color: #323233;
+margin-left:20rpx;
+}
+.arrow-up-down{
+  width:28rpx;
+  height: 28rpx;
+  margin-right:20rpx;
+}
+.up-down-wrap{
+  display:flex;
+  width:100%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left:32rpx;
+  margin-top: 10rpx
+}
+.reg-name-wrap{
+display: flex;
+width:100%;
+flex-direction: row;
+justify-content: flex-start;
+/* line-height: 30rpx; */
+
+}
+.reg-tite-text{
+  flex:9;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.reg-tite-text-1{
+  flex:2;
+  text-align-last: justify;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.plan-container{
+  width:100%;
+  margin-top:10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.capility-ct{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 8rpx 20rpx 0rpx 32rpx;
+}
+.cap-tite-text{
+  flex:1;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+}
+
+.ec-container{
+  width:100%;
+  height:320rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #F8F8F8;
+  padding:20rpx 15rpx 15rpx 1rpx;
+}
+.ec-container-hide{
+  width:100%;
+  height:0;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #F8F8F8;
+  padding:20rpx 15rpx 15rpx 1rpx;
+}
+.ec-first{
+  flex:1;
+}
+.lpitem-divide{
+  height:10rpx;
+  width:100%;
+}
+.ec-second{
+  flex:1;
+}
+
+.radio-select-container{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+}
+.radio-group-ct{
+  width:40%;
+  position: fixed;
+  top:38%;
+  left:30%; 
+  z-index: 9999;
+  background: white;
+  border: 2rpx solid #f4f4f4;
+  border-radius: 12rpx;
+  padding: 20rpx 30rpx;
+}
+.ld-choose-ct{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2rpx solid #f4f4f4;
+  border-radius: 6rpx;
+  padding: 4rpx 10rpx;
+  margin-right:20rpx;
+}
+.arrow-down{
+  width:28rpx;
+  height: 28rpx;
+  margin-left:4rpx;
+}
+.radio-row-total{
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top:8rpx;
+}
+.ldong-list-container{
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.lditem-wrapper{
+  position:relative;
+  width:50%;
+}
+
+

@@ -1,0 +1,75 @@
+/* component/ldItem/ldItem.wxss */
+.lditem-container{
+ position: relative;
+ display: flex;
+ flex-direction: column;
+ background-color: #FFFFFF;
+ border: 1rpx solid rgb(121, 121, 121);
+ border-radius: 0px;
+ margin:10rpx 16rpx 10rpx 16rpx;
+}
+.lpitem-divide-line{
+  background: rgb(121, 121, 121);
+  width:100%;
+  height: 2rpx;
+}
+.ld-first-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin:2rpx 8rpx;
+
+}
+.ld-name{
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #333333;
+}
+.ld-total-price{
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #1989FA;
+}
+.ld-price-text{
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.ld-second-row{
+  display: flex;
+  flex-direction: column;
+  margin:10rpx 8rpx 0 8rpx;
+}
+.ld-second-text{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.ld-third-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin:4rpx 8rpx;
+}
+.ld-third-text{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #AAAAAA;
+}
+.lditem-show{
+  position:absolute;
+  bottom: 2rpx;
+  right:20rpx;
+ }
+ .lditem-hide{
+   position:absolute;
+   bottom:0;
+   right:20rpx;
+   display:none;
+ }
+.lditem-new-reg{
+  width:155rpx;
+  height: 113rpx;
+}

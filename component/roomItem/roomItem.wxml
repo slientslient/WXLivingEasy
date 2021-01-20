@@ -1,0 +1,39 @@
+<!--component/roomItem/roomItem.wxml-->
+<view class="room-item-wrapper" >
+   <view class="room-item-first-row">
+      <view class="room-item-name">
+        {{roomItem.room_name}}
+      </view>
+      <view class="room-item-tarea">
+        <text>{{roomItem.building_area}}</text>
+        <text>m²</text>
+      </view>
+   </view>
+   <view class="room-item-wline"></view>
+   
+   <view class="room-item-second-row">
+     <view class="room-item-sprice">
+       <text>{{roomItem.single_price}}</text>
+       <text>元/m²</text>
+      </view>
+
+      <view class="room-item-hline"></view>
+  
+      <view class="room-item-sprice">
+        <text>{{roomItem.total_price}}</text>
+        <text>万</text>
+      </view>
+   </view>
+
+   <view class="room-item-third-row">
+     <view class="room-item-iarea">
+       <text>套内：</text>
+       <text>{{roomItem.inside_area}}</text>
+     </view>
+     <view class="room-item-parea">
+      <text>公摊：</text>
+      <text>{{roomItem.pub_area}}</text>
+     </view>
+      
+   </view>
+</view>

@@ -1,0 +1,85 @@
+<!--index.wxml-->
+<view class="container">
+<!-- <scroll-view class="scroll-container" scroll-y="true" lower-threshold="50rpx" bindscrolltolower="scrolltolower"> -->
+
+  <!-- <view class="swiper-container">
+   <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <image src="{{item}}" class="swiper-item "></image>
+          </swiper-item>
+        </block>
+      </swiper>
+  </view> -->
+  
+  <!--选择区域及搜索框-->
+  <view class="search-container">
+    <view class="area-select-ct" bindtap="selectArea">
+      <text class="area-name">{{area_selected}}</text>
+      <image src="/image/arrow_down.png" class="image-arrow"></image>
+    </view>
+    <navigator url="/pages/search/search" hover-class="none" >
+      <view class="name-select-ct" bindtap="setIsNext">
+        <image class="search-icon" src="/image/search_icon.png"></image>
+        <text class="search-text">搜索小区宣传名、备案名</text>
+      </view>
+    </navigator>
+  </view>
+  
+  <!--列表-->
+  <view >
+    <block wx:for="{{lpanlist}}"  wx:for-item="lpan" wx:for-index="lpanIndex" wx:key="ad_name">
+      <block wx:for="{{lpan}}" wx:key="id">
+        <view bindtap="setIsNext">
+          <lpItem  lpitem = "{{item}}" ></lpItem>
+        </view>
+      </block>
+    </block>
+  </view>
+ 
+
+  <!--选择区域-->
+  <view class="pick-area-container"  wx:if="{{is_selected}}" catchtouchmove="catchtouchmove">
+    <view class="pick-wrapper">
+        <view class="title-ct">
+            <text class="cancel-text" bindtap="selectCancel">取消</text>
+            <text  class="choose-area-text">选择区域</text>
+            <text  class="sure-text" bindtap="selectSure">确认</text>
+        </view>
+      <view class="lpitem-divide-line"></view>
+        <picker-view indicator-class="picker-view-ind" class="picker-view" mask-class="picker-view-mask" value="{{value}}" bindchange="bindChange" bindpickend="bindpickend" bindpickstart="bindpickstart">
+          <picker-view-column>
+              <view class="picker-view-column" wx:for="{{ranges}}">{{item}}</view>
+          </picker-view-column>
+          <picker-view-column>
+              <view class="picker-view-column" wx:for="{{areas}}">{{item}}</view>
+          </picker-view-column>
+        </picker-view>
+    </view>
+  </view>
+
+  <view class="lpitem-divide-blank"></view>
+  <!--下拉加载框-->
+  <view class="loading_wrapper" wx:if="{{is_loading_pull}}">
+    <view class="weui-loading__wrp" >
+        <view class="weui-loading" style="width:60rpx;height:60rpx"></view>
+    </view>
+  </view>
+  <!-- 加载框 -->
+  <view class="weui-loading__wrp"  wx:if="{{is_loading}}">
+        <view class="weui-loading" style="width:60rpx;height:60rpx"></view>
+    </view>
+
+   <view class="weui-load-more" wx:if="{{is_loadingMore}}">
+      <view class="weui-loading" style="width:40rpx;height:40rpx"></view>
+      <view class="lpitem-divide-loading"></view>
+  </view>
+
+  <!--已经到底-->
+  <view class="weui-loadmore weui-loadmore_line" wx:if="{{is_over}}">
+			<text class="weui-loadmore__tips">已经到底了</text>
+  </view>
+
+<!-- </scroll-view> -->
+</view>

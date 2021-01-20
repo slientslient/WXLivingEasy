@@ -1,0 +1,60 @@
+/* pages/search/search.wxss */
+.name-select-ct{
+  width:90%;
+  height:50rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items: center;
+  border: 2rpx solid  #1989FA;
+  border-radius: 24rpx;
+  margin-top:20rpx;
+  /* margin-left:26rpx;*/
+} 
+.search-icon{
+  width:32rpx;
+  height:32rpx;
+  margin-left: 24rpx;
+}
+.search-text{
+  width:560rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #323233;
+
+}
+.search-text-pl{
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #999999 ;
+  
+}
+.lpitem-divide-line{
+  margin-top: 24rpx;
+  background: #e1e1e186;
+  width:100%;
+  height: 1rpx;
+}
+.weui-loading__wrp{
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-top:-30rpx;
+  margin-left:-30rpx;
+}
+.lpitem-divide-blank{
+  height:60rpx;
+  width:100%;
+}
+.lpitem-divide-loading{
+  height:80rpx;
+  width:100%;
+}
+.lpitem-divide{
+  height:20rpx;
+  width:100%;
+}
+.weui-load-more{
+  margin-top: 20rpx;
+}
+

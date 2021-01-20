@@ -1,0 +1,66 @@
+/* component/roomItem/roomItem.wxss */
+.room-item-wrapper{
+  width:294rpx;
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  border: 1rpx solid #1989FA;
+}
+.room-item-first-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+}
+.room-item-name{
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #1989FA;
+  padding: 0 4rpx;
+}
+.room-item-tarea{
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.room-item-second-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height:43rpx;
+  
+}
+.room-item-sprice{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #FF4444;
+  padding: 0 4rpx;
+}
+.room-item-hline{
+  height:100%;
+  width:1rpx;
+  background-color: #e1e1e1;
+}
+.room-item-wline{
+  width:100%;
+  height:1rpx;
+  background-color: #1989FA;
+}
+.room-item-third-row{
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  
+}
+.room-item-iarea{
+  flex:1;
+  background-color: seagreen;
+  padding: 0 4rpx;
+}
+.room-item-parea{
+  flex:1;
+  background-color: salmon;
+  padding: 0 4rpx;
+}

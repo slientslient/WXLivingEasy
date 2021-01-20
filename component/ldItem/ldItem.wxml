@@ -1,0 +1,28 @@
+<!--component/ldItem/ldItem.wxml-->
+<navigator url="/pages/lddetail/lddetail?id={{lditem.id}}&lpName={{lpName}}" hover-class="none" >
+  <view class="lditem-container">
+    <view class="ld-first-row">
+      <text class="ld-name">{{lditem.ld_name}}</text>
+      <view>
+        <text class="ld-total-price">{{lditem.med_total_price}}</text>
+        <text class="ld-price-text">万/套</text>
+      </view>
+    </view>
+  <view class="lpitem-divide-line"></view>
+    <view class="ld-second-row">
+        <text class="ld-second-text">单价：{{lditem.med_single_price}}元/m²</text>
+        <text class="ld-second-text">面积：{{lditem.med_area}}m²</text>
+        <text class="ld-second-text">备案号：{{lditem.reg_name}}</text>
+    </view>
+
+  <view class="lpitem-divide-line"></view>
+    <view class="ld-third-row">
+      <text class="ld-third-text">1层{{lditem.floor_family_num}}户</text>
+      <text class="ld-third-text">共{{lditem.floor_num}}层</text>
+    </view>
+  </view>
+
+  <view class="{{lditem.isNewReg?'lditem-show':'lditem-hide'}}">
+       <image src="/image/new_register.png" class="lditem-new-reg"></image>
+     </view>
+</navigator>
