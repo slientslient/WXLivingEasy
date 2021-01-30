@@ -15,16 +15,17 @@
   
   <!--选择区域及搜索框-->
   <view class="search-container">
-    <view class="area-select-ct" bindtap="selectArea">
-      <text class="area-name">{{area_selected}}</text>
-      <image src="/image/arrow_down.png" class="image-arrow"></image>
-    </view>
+    
     <navigator url="/pages/search/search" hover-class="none" >
       <view class="name-select-ct" bindtap="setIsNext">
         <image class="search-icon" src="/image/search_icon.png"></image>
         <text class="search-text">搜索小区宣传名、备案名</text>
       </view>
     </navigator>
+    <view class="area-select-ct" bindtap="selectArea">
+      <text class="area-name">{{area_selected}}</text>
+      <image src="/image/arrow_down.png" class="image-arrow"></image>
+    </view>
   </view>
   
   <!--列表-->

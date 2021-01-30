@@ -34,7 +34,10 @@ Page({
   },
   //事件处理函数
  
-  onLoad: function () {
+  onLoad: function (options) {
+    this.setData({
+      area_selected:options.area
+    })
     console.log("data1=="+JSON.stringify(districts.districtsData))
     //console.log("data2=="+JSON.stringify(this.data.districtsData));
     var ranges = [];

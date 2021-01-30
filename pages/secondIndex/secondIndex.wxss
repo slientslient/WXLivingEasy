@@ -1,1 +1,377 @@
 /* pages/secondIndex/secondIndex.wxss */
+.header-wp{
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.header-wp-1{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin:0rpx 28rpx 0 10rpx;
+}
+.header-text{
+  margin-left:14rpx;
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #39A9ED;
+}
+.header-text-1{
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #000000;
+}
+.area-select-wp{
+  height:56rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2rpx solid rgb(121, 121, 121); */
+}
+.area-name{
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #333333;
+  padding-left: 10rpx;
+}
+.image-arrow{
+  margin-left:10rpx;
+  width:32rpx;
+  height:32rpx;
+}
+.header-divide-line{
+  background: #333333;
+  width:100%;
+  height: 1rpx;
+}
+
+/*楼盘数据*/
+.reg-table-header{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  height:50rpx;
+}
+.table-divide-line{
+  margin-top: 6rpx;
+  background: rgba(231, 224, 224, 0.7);
+  width:100%;
+  height: 1rpx;
+}
+.lpan-header{
+  height:100%;
+  display:flex;
+  flex:1.4; 
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; 
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分省略号显示*/
+  margin:3rpx 0;
+}
+.ldong-header{
+  height:100%;
+  display:flex;
+  flex: 1.6;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分省略号显示*/
+  margin:3rpx 0;
+}
+.sets-header{
+  height:100%;
+  display:flex;
+  flex:0.6;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin:3rpx 0;
+}
+.price-header{
+  height:100%;
+  display:flex;
+  flex:1.2;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin:3rpx 0;
+}
+.time-header{
+  height:100%;
+  display:flex;
+  flex:1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin:3rpx 0;
+}
+.table-header-txt{
+  font-size: 26rpx;
+  font-weight: 700;
+  color: #333333;
+  
+}
+.table-header-txt-1{
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+  justify-content: center;
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分省略号显示*/
+}
+.table-header-txt-2{
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #333333;
+  overflow: hidden;/*超出部分隐藏*/
+  white-space: nowrap;/*不换行*/
+  text-overflow:ellipsis;/*超出部分省略号显示*/
+}
+/*更多楼盘和数据*/
+.more-search-wp{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin:20rpx 70rpx;
+  height:60rpx;
+}
+.more-wp{
+  background-color:#02A7F0;
+  border-radius: 20rpx;
+  width:240rpx;
+  height:40rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.more-txt{
+font-size: 28rpx;
+font-weight: 400;
+color: #FFFFFF
+}
+.more-icon{
+  width:48rpx;
+  height:40rpx;
+}
+.search-icon{
+  margin-left:20rpx;
+  width:24rpx;
+  height:24rpx;
+}
+/*关键指标*/
+.second-key-wp{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin:14rpx 28rpx;
+}
+.second-left-wp{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.second-key-txt{
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #000000;
+}
+.month-wp{
+  margin-left:18rpx;
+  background-color:#02A7F0;
+  border:#ffffff 1rpx solid;
+  border-radius: 20rpx;
+  width:68rpx;
+  height:40rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.month-txt{
+  font-size:24rpx;
+  font-weight: 400;
+  color: #ffffff;
+}
+.year-wp{
+  margin-left:18rpx;
+  background-color:#ffffff;
+  border:#333333 1rpx solid;
+  border-radius: 20rpx;
+  width:68rpx;
+  height:40rpx;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.year-txt{
+  font-size:24rpx;
+  font-weight: 400;
+  color: #333333;
+}
+/*关键指标数据*/
+.key-params-wp{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.first-wp{
+ display:flex;
+ flex:1;
+ flex-direction: row;
+ align-items:center;
+ justify-content: center;
+}
+.kpi-number{
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #333333;
+}
+.kpi-unit{
+  font-size: 24rpx;
+  font-weight: 700;
+  color: #333333;
+}
+.kpi-txt{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #333333;
+}
+.kpi-time-wp{
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content: flex-end;
+  margin-right:10rpx;
+}
+.kpi-time-txt{
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #D7D7D7;
+}
+/*折线图*/
+.ec-container{
+  width:100%;
+  height:320rpx;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background: #F8F8F8;
+  padding:20rpx 15rpx 15rpx 1rpx;
+}
+.ec-first{
+  flex:1;
+}
+/*广告*/
+.ad-wp{
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content: center;
+  margin-bottom:10rpx;
+}
+/*radio单选框*/
+.radio-select-container{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+}
+.radio-group-ct{
+  width:40%;
+  position: fixed;
+  top:38%;
+  left:30%; 
+  z-index: 9999;
+  background: white;
+  border: 2rpx solid #f4f4f4;
+  border-radius: 12rpx;
+  padding: 20rpx 30rpx;
+}
+.radio-row-total{
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top:8rpx;
+}
+/*地区选择框*/
+.pick-area-container{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.6);
+  
+}
+.pick-wrapper{
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  background: white;
+  height:540rpx;
+
+}
+.title-ct{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 24rpx;
+  
+}
+.cancel-text{
+  width:100rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #1989FA;
+}
+.choose-area-text{
+  width:150rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #323233;
+}
+.sure-text{
+  width:100rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #1989FA;
+}
+
+.picker-view{
+  width:100%;
+  height:450rpx;
+
+}
+.lpitem-divide-line{
+  margin-top: 24rpx;
+  background: #e1e1e186;
+  width:100%;
+  height: 1rpx;
+}
+.picker-view-ind{
+  height:60rpx;
+}
+.picker-view-column{ 
+   line-height: 60rpx; 
+   text-align: center;
+}

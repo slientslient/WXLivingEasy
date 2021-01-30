@@ -1,2 +1,234 @@
 <!--pages/secondIndex/secondIndex.wxml-->
-<text>pages/secondIndex/secondIndex.wxml</text>
+<view class="contanier">
+  <!--头部-->
+  <view class="header-wp-1">
+    <text class="header-text">合肥新房备案</text>
+    <view class="area-select-wp" bindtap="selectArea">
+      <text class="area-name">{{area_selected}}</text>
+      <image src="/image/arrow_down.png" class="image-arrow"></image>
+    </view>
+  </view>
+  <view class="header-divide-line"></view>
+  <!--最新备案数据-->
+  <!-- <view class="header-wp-1">
+    <text class="header-text-1">最新备案</text>
+  </view> -->
+  <!--楼盘数据-->
+  <!--表头-->
+  <view class="reg-table-header">
+    <view class="lpan-header">
+      <text class="table-header-txt">楼盘</text>
+    </view>
+    <view class="ldong-header">
+      <text class="table-header-txt">楼栋</text>
+    </view>
+    <view class="sets-header">
+      <text class="table-header-txt">套数</text>
+    </view>
+    <view class="price-header">
+      <text class="table-header-txt">单价</text>
+    </view>
+    <view class="time-header">
+      <text class="table-header-txt">公示时间</text>
+    </view>
+  </view>
+  <!--最新备案表格数据-->
+  <view  wx:for="{{newRegList}}">
+    <view class="table-divide-line"></view>
+    <view class="reg-table-header" bindtap="goToLpanDetail" data-id="{{item.lpid}}">
+      <view class="lpan-header">
+        <text class="table-header-txt-1">{{item.lpname}}</text>
+      </view>
+      <view class="ldong-header">
+        <text class="table-header-txt-1">{{item.ldname}}</text>
+      </view>
+      <view class="sets-header">
+        <text class="table-header-txt-1">{{item.sets}}</text>
+        <text class="table-header-txt-2">套</text>
+      </view>
+      <view class="price-header">
+        <text class="table-header-txt-1">{{item.price}}</text>
+        <text class="table-header-txt-2">元/m²</text>
+      </view>
+      <view class="time-header">
+        <text class="table-header-txt-1">{{item.gen_time}}</text>
+      </view>
+    </view>
+  </view>
+  <!--更多新房、搜索楼盘-->
+  <view class="more-search-wp">
+    <view class="more-wp" bindtap="goToIndex">
+     <text class="more-txt">更多新房</text>
+     <image src="/image/arrow_double_right.png" class="more-icon"></image>
+    </view>
+    <view class="more-wp" bindtap="goToSearch">
+      <text class="more-txt">搜索楼盘</text>
+      <image src="/image/search_lpan.png" class="search-icon"></image>
+    </view>
+  </view>
+  <!--关键指标-->
+  <view class="second-key-wp" style="margin-top:20rpx;">
+    <view class="second-left-wp">
+      <view class="second-key-txt">关键指标</view>
+      <view class="{{kpi_tag==1?'month-wp':'year-wp'}}" bindtap="changeKpiTag">
+        <text class="{{kpi_tag==1?'month-txt':'year-txt'}}">月度</text>
+      </view>
+      <view class="{{kpi_tag==2?'month-wp':'year-wp'}}" bindtap="changeKpiTag">
+        <text class="{{kpi_tag==2?'month-txt':'year-txt'}}">年度</text>
+      </view>
+    </view>
+    <view class="area-select-wp" bindtap="selectTime">
+      <text class="area-name">{{kpi_tag==1?time_selected:year_selected}}</text>
+      <image src="/image/arrow_down.png" class="image-arrow"></image>
+    </view>
+  </view>
+  <!--指标参数-->
+  <view class="key-params-wp">
+    <view class="first-wp">
+      <text class="kpi-number">{{kpiItem.singlePriceMiddle}}</text>
+      <text class="kpi-unit">元/m²</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-number">{{kpiItem.totalPriceMiddle}}</text>
+      <text class="kpi-unit">万</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-number">{{kpiItem.areaMiddle}}</text>
+      <text class="kpi-unit">m²</text>
+    </view>
+  </view>
+  <view class="key-params-wp">
+    <view class="first-wp">
+      <text class="kpi-txt">单价中位数</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-txt">总价中位数</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-txt">面积中位数</text>
+    </view>
+  </view>
+  <view class="key-params-wp">
+    <view class="first-wp">
+      <text class="kpi-number">{{kpiItem.sets}}</text>
+      <text class="kpi-unit">套</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-number">{{kpiItem.totalPrice}}</text>
+      <text class="kpi-unit">亿</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-number">{{kpiItem.area}}</text>
+      <text class="kpi-unit">万m²</text>
+    </view>
+  </view>
+  <view class="key-params-wp">
+    <view class="first-wp">
+      <text class="kpi-txt">总套数</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-txt">总价值</text>
+    </view>
+    <view class="first-wp">
+      <text class="kpi-txt">总面积</text>
+    </view>
+  </view>
+  <!--数据更新时间-->
+  <view class="kpi-time-wp">
+    <text class="kpi-time-txt">数据更新至{{kpiItem.updateTime}}</text>
+  </view>
+  <!--变化趋势-->
+  <view class="second-key-wp">
+    <text class="second-key-txt">变化趋势</text>
+    <view class="area-select-wp" bindtap="radioSelect">
+      <text class="area-name">{{choose_name}}</text>
+      <image src="/image/arrow_down.png" class="image-arrow"></image>
+    </view>
+  </view>
+  <!--折线图-->
+  <view  class="ec-container">
+    <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}" class="ec-first"></ec-canvas>
+  </view>
+  <!--广告区域-->
+  <view class="ad-wp">
+    <ad unit-id="adunit-58c1b0483aa36e02" ad-intervals="30" bindload="adLoad" binderror="adError" bindclose="adClose"></ad>
+  </view>
+  <!--选择区域-->
+  <view class="pick-area-container" wx:if="{{is_selected}}" catchtouchmove="catchtouchmove">
+    <view class="pick-wrapper">
+      <view class="title-ct">
+        <text class="cancel-text" bindtap="selectCancel">取消</text>
+        <text class="choose-area-text">选择区域</text>
+        <text class="sure-text" bindtap="selectSure">确认</text>
+      </view>
+      <view class="lpitem-divide-line"></view>
+      <picker-view indicator-class="picker-view-ind" class="picker-view" mask-class="picker-view-mask" value="{{value}}"
+        bindchange="bindChange" bindpickend="bindpickend" bindpickstart="bindpickstart">
+        <picker-view-column>
+          <view class="picker-view-column" wx:for="{{ranges}}">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view class="picker-view-column" wx:for="{{areas}}">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+  <!--选择月份-->
+  <view class="pick-area-container" wx:if="{{is_time_selected}}" catchtouchmove="catchtouchmove">
+    <view class="pick-wrapper">
+      <view class="title-ct">
+        <text class="cancel-text" bindtap="selectTimeCancel">取消</text>
+        <text class="choose-area-text">选择时间</text>
+        <text class="sure-text" bindtap="selectTimeSure">确认</text>
+      </view>
+      <view class="lpitem-divide-line"></view>
+      <picker-view indicator-class="picker-view-ind" class="picker-view" mask-class="picker-view-mask"
+        value="{{time_value}}" bindchange="bindChangeTime" bindpickend="bindpickendTime"
+        bindpickstart="bindpickstartTime">
+        <picker-view-column>
+          <view class="picker-view-column" wx:for="{{year_ranges}}">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view class="picker-view-column" wx:for="{{months}}">{{item}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+  <!--选择年份-->
+  <view class="pick-area-container" wx:if="{{is_year_selected}}" catchtouchmove="catchtouchmove">
+    <view class="pick-wrapper">
+      <view class="title-ct">
+        <text class="cancel-text" bindtap="selectYearCancel">取消</text>
+        <text class="choose-area-text">选择时间</text>
+        <text class="sure-text" bindtap="selectYearSure">确认</text>
+      </view>
+      <view class="lpitem-divide-line"></view>
+      <picker-view indicator-class="picker-view-ind" class="picker-view" mask-class="picker-view-mask"
+        value="{{year_value}}" bindchange="bindChangeYear" bindpickend="bindpickendYear"
+        bindpickstart="bindpickstartYear">
+        <picker-view-column>
+          <view class="picker-view-column" wx:for="{{years}}">{{item}}</view>
+        </picker-view-column>
+        <!-- <picker-view-column>
+          <view class="picker-view-column" wx:for="{{months}}">{{item}}</view>
+        </picker-view-column> -->
+      </picker-view>
+    </view>
+  </view>
+
+  <!-- 中位数选择框 -->
+  <view class="radio-select-container" wx:if="{{is_radio_show}}" catchtouchmove="catchtouchmove"
+    bindtap="bindRadioSelect">
+    <view class="radio-group-ct">
+      <radio-group bindchange="radioChange">
+        <label class="radio-row-total" wx:for="{{choose_items}}" wx:key="{{item.value}}">
+          <view class="radio-wrapper">
+            <radio value="{{item.value}}" checked="{{item.checked}}" color="#1989FA" />
+          </view>
+          <view class="item-name-text">{{item.name}}</view>
+        </label>
+      </radio-group>
+    </view>
+  </view>
+  <!-- 选择框 -->
+</view>
