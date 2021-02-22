@@ -4,6 +4,7 @@ import * as echarts from '../../ec-canvas/echarts';
 const app = getApp();
 var httpClient = require('../../utils/httpclient.js');
 var districts = require('../../utils/districtData.js');
+var utils = require('../../utils/util.js')
 Page({
   /**
    * 页面的初始数据
@@ -23,7 +24,6 @@ Page({
     timesData : [],
     year_ranges:[],
     months:[],
-
     time_value:[0,0],
     is_time_select_scroll:false,//时间选择框
     year_selected:'',
@@ -367,8 +367,9 @@ Page({
           res.data.data[0].totalPrice = Math.round(res.data.data[0].totalPrice/100000000)
           res.data.data[0].totalPriceMiddle = Math.round(res.data.data[0].totalPriceMiddle/10000)
         }
-        let day = parseInt(res.data.data[0].updateTime.substring(8,10))-1
-        res.data.data[0].updateTime = res.data.data[0].updateTime.substring(0,8)+day
+        let day = res.data.data[0].updateTime.substring(0,10)
+        console.log("getNextTime==",utils.getNextDate(day,-1))
+        res.data.data[0].updateTime = utils.getNextDate(day,-1)
         this.setData({
           kpiItem:res.data.data[0]
         }) 

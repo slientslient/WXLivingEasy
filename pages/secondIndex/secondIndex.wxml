@@ -114,7 +114,7 @@
       <text class="kpi-txt">面积中位数</text>
     </view>
   </view>
-  <view class="key-params-wp">
+  <view class="key-params-wp" style="margin-top:15rpx;">
     <view class="first-wp">
       <view>
       <text class="kpi-number">{{kpiItem.sets}}</text>
