@@ -229,10 +229,10 @@ Page({
         type: 'value',
         name:unit,
         nameGap:10,
-        // nameTextStyle:{
-        //   fontSize:3,
-        //   align:'center'
-        // },
+        nameTextStyle:{
+          fontSize:13,
+          align:'center'
+        },
         axisLabel: {
           show: true,
           textStyle: {

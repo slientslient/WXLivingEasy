@@ -233,7 +233,7 @@ color: #FFFFFF
  display:flex;
  flex:1;
  flex-direction: row;
- align-items:center;
+ align-items:flex-end;
  justify-content: center;
 }
 .kpi-number{
@@ -242,12 +242,12 @@ color: #FFFFFF
   color: #333333;
 }
 .kpi-unit{
-  font-size: 24rpx;
+  font-size: 18rpx;
   font-weight: 700;
   color: #333333;
 }
 .kpi-txt{
-  font-size: 28rpx;
+  font-size: 22rpx;
   font-weight: 400;
   color: #333333;
 }
@@ -256,7 +256,7 @@ color: #FFFFFF
   flex-direction:row;
   align-items:center;
   justify-content: flex-end;
-  margin-right:10rpx;
+  margin-right:28rpx;
 }
 .kpi-time-txt{
   font-size: 24rpx;

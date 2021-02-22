@@ -10,7 +10,7 @@ function requestTask(action, params, httpMethod) {
   // console.log(api, params, headers, httpMethod);
   return new Promise((resolve, reject) => {
      wx.request({
-         url:url_prefix_test+action,
+         url:url_prefix+action,
          data: params,
          header: {'content-type': 'application/json'},
          method: httpMethod,

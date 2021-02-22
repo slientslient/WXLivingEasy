@@ -85,16 +85,22 @@
   <!--指标参数-->
   <view class="key-params-wp">
     <view class="first-wp">
+    <view>
       <text class="kpi-number">{{kpiItem.singlePriceMiddle}}</text>
       <text class="kpi-unit">元/m²</text>
     </view>
+    </view>
     <view class="first-wp">
+     <view>
       <text class="kpi-number">{{kpiItem.totalPriceMiddle}}</text>
       <text class="kpi-unit">万</text>
     </view>
+    </view>
     <view class="first-wp">
+      <view>
       <text class="kpi-number">{{kpiItem.areaMiddle}}</text>
       <text class="kpi-unit">m²</text>
+    </view>
     </view>
   </view>
   <view class="key-params-wp">
@@ -110,16 +116,22 @@
   </view>
   <view class="key-params-wp">
     <view class="first-wp">
+      <view>
       <text class="kpi-number">{{kpiItem.sets}}</text>
       <text class="kpi-unit">套</text>
     </view>
+    </view>
     <view class="first-wp">
+      <view>
       <text class="kpi-number">{{kpiItem.totalPrice}}</text>
       <text class="kpi-unit">亿</text>
     </view>
+    </view>
     <view class="first-wp">
+      <view>
       <text class="kpi-number">{{kpiItem.area}}</text>
       <text class="kpi-unit">万m²</text>
+    </view>
     </view>
   </view>
   <view class="key-params-wp">
@@ -151,7 +163,7 @@
   </view>
   <!--广告区域-->
   <view class="ad-wp">
-    <ad unit-id="adunit-58c1b0483aa36e02" ad-intervals="30" bindload="adLoad" binderror="adError" bindclose="adClose"></ad>
+    <ad unit-id="adunit-58c1b0483aa36e02" ad-intervals="300" ></ad>
   </view>
   <!--选择区域-->
   <view class="pick-area-container" wx:if="{{is_selected}}" catchtouchmove="catchtouchmove">
