@@ -241,6 +241,17 @@ justify-content: flex-start;
 .lditem-wrapper{
   position:relative;
   width:50%;
+  height:272rpx;
+}
+
+.ad-style{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  /* border: 1rpx solid rgb(121, 121, 121); */
+  border-radius: 0px;
+   margin:1rpx 16rpx 1rpx 16rpx; 
 }
 
 

@@ -132,6 +132,23 @@
          <view class="lditem-wrapper" bindtap="goToLdDetail">
            <ldItem lditem = "{{item}}" lpName = "{{lpitem.ad_name}}"></ldItem>
          </view>
+
+        <view class="lditem-wrapper" wx:if="{{index == 3? true : false}}">
+          <view class="ad-style">
+            <!-- <ad-custom unit-id="adunit-9e4509f63585c0a8" ></ad-custom> -->
+            <!-- <ad-custom unit-id="adunit-9e4509f63585c0a8"></ad-custom> -->
+            <ad-custom unit-id="adunit-fb66c7994f2572e8"></ad-custom>
+          </view>
+        </view>
+        <view class="lditem-wrapper" wx:if="{{(index-4)%6 == 5? true : false}}">
+          <view class="ad-style">
+            <!-- <ad-custom unit-id="adunit-9e4509f63585c0a8" ></ad-custom> -->
+            <!-- <ad-custom unit-id="adunit-9e4509f63585c0a8"></ad-custom> -->
+            <ad-custom unit-id="adunit-fb66c7994f2572e8"></ad-custom>
+          </view>
+        </view>
+        
+         
       </block>
     </view>
       

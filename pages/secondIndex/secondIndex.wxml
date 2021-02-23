@@ -163,7 +163,8 @@
   </view>
   <!--广告区域-->
   <view class="ad-wp">
-    <ad unit-id="adunit-58c1b0483aa36e02" ad-intervals="300" ></ad>
+    <ad-custom unit-id="adunit-e2705d42832fef4a" style="width:95% !important"></ad-custom>
+    <!-- <ad unit-id="adunit-58c1b0483aa36e02" ad-intervals="300" ></ad> -->
   </view>
   <!--选择区域-->
   <view class="pick-area-container" wx:if="{{is_selected}}" catchtouchmove="catchtouchmove">
