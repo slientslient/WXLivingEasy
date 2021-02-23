@@ -252,13 +252,13 @@ Page({
       if(!this.data.is_radio_show){
         this.setData({
           choose_way_temp:this.data.choose_way,
-          is_radio_show:true
-          //is_echart_show:false
+          is_radio_show:true,
+          is_echart_show:false
         })
       }else{
         this.setData({
-          is_radio_show:false
-          //is_echart_show:true
+          is_radio_show:false,
+          is_echart_show:true
         })
       }
       
@@ -268,14 +268,14 @@ Page({
     },
     bindRadioSelect:function(){
       this.setData({
-        is_radio_show:false
-       // is_echart_show:true
+        is_radio_show:false,
+        is_echart_show:true
       });
       /**页面滚动，防止短手机，选择之后出现选择内容看不见，后期或需要改进 */
-    //   wx.pageScrollTo({
-    //     scrollTop: 600,
-    //     duration: 300
-    // });
+      wx.pageScrollTo({
+        scrollTop: 600,
+        duration: 300
+    });
     if(this.data.choose_way!=this.data.choose_way_temp){
       this.getLdSort();
     }
