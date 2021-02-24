@@ -13,7 +13,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "庐州居不易",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true,
     "onReachBottomDistance": 200
   },
   "style": "v2",

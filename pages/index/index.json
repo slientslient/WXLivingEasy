@@ -1,5 +1,9 @@
 {
   "usingComponents": {
     "lpItem":"/component/lpItem/lpItem"
-  }
+  },
+    "enablePullDownRefresh": true
+  
+
+  
 }

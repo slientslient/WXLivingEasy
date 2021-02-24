@@ -65,7 +65,8 @@ Page({
     totalPriceArr:[],
     totalAreaArr:[],
     allyears:[],
-    allmonths:[]
+    allmonths:[],
+    is_loading_pull:false
   },
 
   /**
@@ -161,8 +162,31 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
+/**
+ * 下拉刷新
+ */
+onPullDownRefresh: function (){
+  //获取当前日期
+  var date = new Date()
+  let year = date.getFullYear()
+  let month = date.getMonth() + 1
+  month=month<10?'0'+month:month
+  this.setData({
+    area_selected:'全合肥',
+    time_selected:year+"年"+month+"月",
+    kpi_tag:1,
+    choose_way:1,
+    choose_name:'单价中位数',
+    is_loading_pull:true,
+  })
+  
+   //请求备案统计数据
+   this.getNewRegister();
+   this.getNewKpiData();
+   this.getChangeData();
+},
 
   /**
    * 生命周期函数--监听页面显示
@@ -467,10 +491,17 @@ Page({
       }
       this.init_one(this.data.serialData,this.data.xAixsData,this.data.choose_name,this.data.unit)
      }
+     this.setData({
+       is_loading_pull:false
+     })
      
     },err=>{
      console.log("err==",err)
+     this.setData({
+      is_loading_pull:false
     })
+    })
+    wx.stopPullDownRefresh()
   },
   //选择区域
   selectArea:function(){

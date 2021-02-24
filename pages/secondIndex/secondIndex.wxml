@@ -244,4 +244,12 @@
     </view>
   </view>
   <!-- 选择框 -->
+
+
+  <!--下拉加载框-->
+  <view class="loading_wrapper" wx:if="{{is_loading_pull}}">
+    <view class="weui-loading__wrp" >
+        <view class="weui-loading" style="width:60rpx;height:60rpx"></view>
+    </view>
+  </view>
 </view>
