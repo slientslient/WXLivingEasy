@@ -241,7 +241,7 @@ justify-content: flex-start;
 .lditem-wrapper{
   position:relative;
   width:50%;
-  /* height:272rpx; */
+  height:272rpx;
 }
 
 .ad-style{
